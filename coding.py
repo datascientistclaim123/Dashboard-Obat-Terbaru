@@ -4,7 +4,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 # Membaca data dari file Excel
-df = pd.read_excel('data_cleaned.xlsx')
+df = pd.read_excel('df_cleaned.xlsx')
 
 # Streamlit App Title
 st.title("Dashboard Sebaran Obat di Tiap Rumah Sakit 💊")
