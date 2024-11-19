@@ -62,6 +62,9 @@ elif page == "Grouped Data":
         Total_Rows=('ClaimNo', 'count')
     ).reset_index()
 
+    # Add 'Harga Satuan' column
+    grouped_df['Harga Satuan'] = grouped_df['Total_Amount_Bill'] / grouped_df['Total_Rows']
+
     # Display Grouped Data
     st.subheader(f"Grouped Data by 'Nama Item Garda Medika' (Filtered by {selected_treatment_place})")
     st.write(grouped_df)
