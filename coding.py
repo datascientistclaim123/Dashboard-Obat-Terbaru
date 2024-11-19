@@ -6,11 +6,6 @@ import matplotlib.pyplot as plt
 # Membaca data dari file Excel
 df = pd.read_excel('df_cleaned.xlsx')
 
-# Filter untuk menghapus baris dengan kata tertentu di kolom "Nama Item Garda Medika"
-keywords_to_remove = ["AL", "SP", "AS", "INFUS", "INFUSAN MIX", "INFUS SP", "INFUS NS"]
-pattern = "|".join(keywords_to_remove)  # Buat pola regex dengan kata kunci
-df = df[~df['Nama Item Garda Medika'].str.contains(pattern, case=False, na=False)]
-
 # Streamlit App Title
 st.title("Dashboard Sebaran Obat di Tiap Rumah Sakit 💊")
 # Sidebar Navigation
