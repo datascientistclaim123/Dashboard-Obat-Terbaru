@@ -63,7 +63,7 @@ elif page == "Grouped Data":
     ).reset_index()
 
     # Add 'Harga Satuan' column
-    grouped_df['Harga Satuan'] = grouped_df['Total_Amount_Bill'] / grouped_df['Total_Rows']
+    grouped_df['Harga Satuan'] = (grouped_df['Total_Amount_Bill'] / grouped_df['Total_Rows']).round(0).astype(int)
 
     # Rearrange columns: "Nama Item Garda Medika", "Harga Satuan", "Total_Amount_Bill", "Total_Rows"
     grouped_df = grouped_df[['Nama Item Garda Medika', 'Harga Satuan', 'Total_Rows', 'Total_Amount_Bill']]
