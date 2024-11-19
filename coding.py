@@ -66,13 +66,16 @@ elif page == "Grouped Data":
     grouped_df['Harga Satuan'] = grouped_df['Total_Amount_Bill'] / grouped_df['Total_Rows']
 
     # Rearrange columns: "Nama Item Garda Medika", "Harga Satuan", "Total_Amount_Bill", "Total_Rows"
-    grouped_df = grouped_df[['Nama Item Garda Medika', 'Harga Satuan', 'Total_Amount_Bill', 'Total_Rows']]
+    grouped_df = grouped_df[['Nama Item Garda Medika', 'Harga Satuan', 'Total_Rows', 'Total_Amount_Bill']]
 
     # Apply style to highlight "Total_Amount_Bill" column
-    def highlight_column(column):
-        return ['background-color: #FFEB99' if col == 'Total_Amount_Bill' else '' for col in column]
+    def highlight_total_amount(val):
+        return 'background-color: #FFEB99' if val > 0 else ''
 
-    styled_grouped_df = grouped_df.style.apply(highlight_column, axis=1, subset=['Total_Amount_Bill'])
+    styled_grouped_df = grouped_df.style.applymap(
+        highlight_total_amount, subset=['Total_Amount_Bill']
+    )
+
 
     # Display Grouped Data
     st.subheader(f"Grouped Data by 'Nama Item Garda Medika' (Filtered by {selected_treatment_place})")
