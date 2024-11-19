@@ -37,7 +37,7 @@ if page == "Filter Data":
     st.write(filtered_df)
 
     # Display Total Records
-    st.text(f"Jumlah Baris: {len(filtered_df)}")
+    st.text(f"Total Records: {len(filtered_df)}")
     st.markdown(small_note)
     
 # Page 2: Grouped Data
