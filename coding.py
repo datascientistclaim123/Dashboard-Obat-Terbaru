@@ -62,6 +62,9 @@ elif page == "Grouped Data":
         Total_Rows=('ClaimNo', 'count')
     ).reset_index()
 
+    #Bulatkan kolom 'Total_Amout_Bill
+    grouped_df['Total_Amount_Bill'] = grouped_df['Total_Amount_Bill'].round(0).astype(int)
+
     # Add 'Harga Satuan' column
     grouped_df['Harga Satuan'] = (grouped_df['Total_Amount_Bill'] / grouped_df['Total_Rows']).round(0).astype(int)
 
